@@ -35,5 +35,5 @@ export function useMovies (searchTerm) {
         };
         fetchMovies();
     }, [searchTerm]);
-    return { movies, isLoading, error}
+    return { movies: Movies, isLoading, error}
 }

@@ -1,4 +1,4 @@
-export default function Header () {
+export default function Header ({setSearchTerm}) {
     return (
         <header className="h-24 w-full flex items-center justify-between px-8 z-20 shrink-0">
         <div className="flex gap-4 text-gray-400">
@@ -15,6 +15,7 @@ export default function Header () {
             
             <input type="text" 
                 placeholder="Search..." 
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full bg-black/20 border border-white/5 rounded-full py-3.5 pl-12 pr-4 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-white/20 focus:bg-black/40 transition backdrop-blur-md" />
         </div>
 

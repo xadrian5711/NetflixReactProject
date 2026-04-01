@@ -1,9 +1,15 @@
+import { useState } from "react"
 import Iconcol from "./IconCol"
 import ListTabs from "./ListTabs"
 import MainContent from "./MainContent"
 import Header from "./Header"
+import { useMovies } from "./useMovies"
 
 export default function Body() {
+    const [searchTerm, setSearchTerm] = useState("Batman");
+    const {movies, isLoading, error } = useMovies(searchTerm);
+
+
     return (
         <main className="h-screen w-screen relative bg-gray-900 text-white overflow-hidden">
             {/* 1. Background Layer (Kept separate so it doesn't move) */}
@@ -20,7 +26,12 @@ export default function Body() {
                     
                     <Iconcol />  
                     <ListTabs />  
-                    <MainContent />
+                    <MainContent 
+                    movies={movies}
+                    isLoading={isLoading}
+                    error={error}
+                    setSearchTerm={setSearchTerm}
+                    />
 
 
                 </div>
