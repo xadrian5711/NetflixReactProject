@@ -1,5 +1,7 @@
 import Iconcol from "./IconCol"
 import ListTabs from "./ListTabs"
+import MainContent from "./MainContent"
+import Header from "./Header"
 
 export default function Body() {
     return (
@@ -18,6 +20,7 @@ export default function Body() {
                     
                     <Iconcol />  
                     <ListTabs />  
+                    <MainContent />
 
 
                 </div>
