@@ -1,0 +1,54 @@
+import { useMovies } from "../useMovies";
+import { useState } from "react";
+import Header from "../components/Header";
+import { NavLink } from "react-router-dom";
+export default function MovieList() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const { movies, isLoading, error } = useMovies(searchTerm);
+  return (
+    <>
+      <Header setSearchTerm={setSearchTerm} />
+      <div className="flex-1 overflow-y-auto p-8 pt-0">
+        {/* 1. Handle Loading/Error States */}
+        {isLoading && <p className="text-white/50">Searching for movies...</p>}
+        {error && <p className="text-red-500/80">Error: {error}</p>}
+
+        {/* 2. Grid for Movie Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {movies?.map((movie) => (
+            <NavLink
+              key={movie.imdbID}
+              className="group cursor-pointer"
+              to={`/movie/${movie.imdbID}`}
+            >
+              <div className="relative aspect-2/3 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
+                <img
+                  src={
+                    movie.Poster !== "N/A"
+                      ? movie.Poster
+                      : "https://via.placeholder.com/300x450"
+                  }
+                  alt={movie.Title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
+              <div className="mt-3">
+                <h3 className="text-sm font-semibold truncate">
+                  {movie.Title}
+                </h3>
+                <p className="text-xs text-gray-400">{movie.Year}</p>
+              </div>
+            </NavLink>
+          ))}
+        </div>
+
+        {/* 3. Empty State */}
+        {!isLoading && movies?.length === 0 && !error && (
+          <div className="text-center mt-20 text-gray-500">
+            <p>Search for your favorite movies above!</p>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}

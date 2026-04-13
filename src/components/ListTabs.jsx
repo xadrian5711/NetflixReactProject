@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function ListTabs() {
   return (
     <div className="w-80 flex flex-col border-r border-white/5 shrink-0 h-full">
@@ -9,22 +11,22 @@ export default function ListTabs() {
         />
 
         <nav className="flex flex-col space-y-6" id="nav-menu">
-          <a
-            href="#"
+          <NavLink
+            to="/"
             className="nav-item flex items-center gap-4 group text-gray-400 hover:text-white transition-colors duration-200"
           >
             <div className="nav-dot w-1.5 h-1.5 bg-transparent border border-gray-500 rounded-full group-hover:border-white transition-all duration-300"></div>
             <span className="nav-text font-medium text-sm tracking-wide">
               Browse
             </span>
-          </a>
-          <a
-            href="#"
+          </NavLink>
+          <NavLink
+            to="/watchlist"
             className="nav-item flex items-center gap-4 group text-gray-400 hover:text-white transition-colors duration-200"
           >
             <div className="nav-dot w-1.5 h-1.5 bg-transparent border border-gray-500 rounded-full group-hover:border-white transition-all duration-300"></div>
-            <span className="font-medium text-sm tracking-wide">Wishlist</span>
-          </a>
+            <span className="font-medium text-sm tracking-wide">Watchlist</span>
+          </NavLink>
           <a
             href="#"
             className="nav-item flex items-center gap-4 group text-gray-400 hover:text-white transition-colors duration-200"
