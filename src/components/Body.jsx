@@ -1,9 +1,7 @@
-import { useState } from "react";
 import Iconcol from "./IconCol";
 import ListTabs from "./ListTabs";
 import MainContent from "../content pages/MainContent";
 import Header from "./Header";
-import { useMovies } from "../useMovies";
 import { Outlet } from "react-router-dom";
 
 export default function Body() {

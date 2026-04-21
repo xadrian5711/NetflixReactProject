@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
-import { useState } from "react";
 
-export default function MainContent({}) {
+export default function MainContent() {
   return (
     <div className="flex-1 flex flex-col relative h-full overflow-hidden">
       <Outlet />
