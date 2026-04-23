@@ -15,7 +15,7 @@ export default function Body() {
       <div className="relative z-10 flex h-full w-full items-center justify-center">
         {/* 3. Your Bubble */}
         <div
-          className="w-[100%] h-[90%] max-w-4xl flex items-center justify-center
+          className="w-full h-[90%] max-w-4xl flex items-center justify-center
                     bg-white/10 backdrop-blur-3xl 
                     rounded-[40px] border border-white/10 shadow-2xl overflow-hidden"
         >
